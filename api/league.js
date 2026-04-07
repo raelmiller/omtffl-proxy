@@ -7,7 +7,7 @@ module.exports = async function handler(req, res) {
   const urls = {
     'league': `https://draft.premierleague.com/api/league/${id}/details`,
     'elements': `https://draft.premierleague.com/api/league/${id}/element-status`,
-    'bootstrap': `https://draft.premierleague.com/api/bootstrap-static/`,
+   'bootstrap': `https://draft.premierleague.com/api/bootstrap-static`,
     'fixtures': `https://draft.premierleague.com/api/fixtures/`,
   };
 
