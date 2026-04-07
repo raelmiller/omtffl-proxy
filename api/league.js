@@ -4,14 +4,17 @@ module.exports = async function handler(req, res) {
 
   const { id, endpoint } = req.query;
 
+  // Legacy format: no endpoint param = league details (for existing dashboard)
+  const resolvedEndpoint = endpoint || 'league';
+
   const urls = {
     'league': `https://draft.premierleague.com/api/league/${id}/details`,
     'elements': `https://draft.premierleague.com/api/league/${id}/element-status`,
-   'bootstrap': `https://draft.premierleague.com/api/bootstrap-static`,
-'fixtures': `https://fantasy.premierleague.com/api/fixtures/`,
+    'bootstrap': `https://draft.premierleague.com/api/bootstrap-static`,
+    'fixtures': `https://fantasy.premierleague.com/api/fixtures/`,
   };
 
-  const url = urls[endpoint];
+  const url = urls[resolvedEndpoint];
   if (!url) return res.status(400).json({ error: `Unknown endpoint. Use: ${Object.keys(urls).join(', ')}` });
 
   try {
