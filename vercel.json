@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "functions": {
-    "api/*.js": {
-      "memory": 128,
-      "maxDuration": 10
-    }
-  }
+  "routes": [
+    { "src": "/api/league", "dest": "/api/league.js" },
+    { "src": "/api/picks", "dest": "/api/picks.js" },
+    { "src": "/api/bootstrap", "dest": "/api/bootstrap.js" },
+    { "src": "/api/fixtures", "dest": "/api/fixtures.js" }
+  ]
 }
