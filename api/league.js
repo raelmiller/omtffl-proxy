@@ -12,6 +12,7 @@ module.exports = async function handler(req, res) {
     'elements': `https://draft.premierleague.com/api/league/${id}/element-status`,
     'bootstrap': `https://draft.premierleague.com/api/bootstrap-static`,
     'fixtures': `https://fantasy.premierleague.com/api/fixtures/`,
+    'player': `https://fantasy.premierleague.com/api/element-summary/${id}/`,
   };
 
   const url = urls[resolvedEndpoint];
