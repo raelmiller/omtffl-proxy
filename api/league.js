@@ -8,7 +8,7 @@ module.exports = async function handler(req, res) {
     'league': `https://draft.premierleague.com/api/league/${id}/details`,
     'elements': `https://draft.premierleague.com/api/league/${id}/element-status`,
    'bootstrap': `https://draft.premierleague.com/api/bootstrap-static`,
-    'fixtures': `https://draft.premierleague.com/api/fixtures/`,
+'fixtures': `https://fantasy.premierleague.com/api/fixtures/`,
   };
 
   const url = urls[endpoint];
