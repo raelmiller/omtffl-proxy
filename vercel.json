@@ -4,6 +4,7 @@
     { "src": "/api/league", "dest": "/api/league.js" },
     { "src": "/api/picks", "dest": "/api/picks.js" },
     { "src": "/api/bootstrap", "dest": "/api/bootstrap.js" },
-    { "src": "/api/fixtures", "dest": "/api/fixtures.js" }
+    { "src": "/api/fixtures", "dest": "/api/fixtures.js" },
+    { "src": "/api/claude", "dest": "/api/claude.js" }
   ]
 }
