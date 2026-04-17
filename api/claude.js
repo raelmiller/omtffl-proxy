@@ -11,8 +11,12 @@ module.exports = async (req, res) => {
   }
 
   try {
-    // Vercel may pass body as string or object depending on content-type
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+
+    // Log what we're sending for debugging
+    console.log('Request body keys:', Object.keys(body || {}));
+    console.log('Model:', body?.model);
+    console.log('Messages count:', body?.messages?.length);
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -25,8 +29,15 @@ module.exports = async (req, res) => {
     });
 
     const data = await response.json();
+
+    // Log error detail if not ok
+    if (!response.ok) {
+      console.error('Anthropic error:', response.status, JSON.stringify(data));
+    }
+
     return res.status(response.status).json(data);
   } catch (e) {
+    console.error('Proxy exception:', e.message);
     return res.status(500).json({ error: e.message });
   }
 };
